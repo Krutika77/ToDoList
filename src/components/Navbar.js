@@ -1,22 +1,14 @@
-import React, { Component } from "react";
-import { ThemeContext } from "../contexts/ThemeContext.js";
+import React, { useContext } from "react";
+import { ListContext } from "../contexts/ListContext.js";
 
-class Navbar extends Component {
-  render() {
-    return (
-      <ThemeContext.Consumer>
-        {(context) => {
-          const { isLightTheme, light, dark } = context;
-          const theme = isLightTheme ? light : dark;
-          return (
-            <nav style={{ background: theme.ui, color: theme.syntax }}>
-              <h1> To Do List</h1>
-            </nav>
-          );
-        }}
-      </ThemeContext.Consumer>
-    );
-  }
-}
+const Navbar = () => {
+  const { todos } = useContext(ListContext);
+  return (
+    <div className="navbar">
+      <h1> To Do List</h1>
+      <p>Currently you have {todos.length} pending tasks to go through...</p>
+    </div>
+  );
+};
 
 export default Navbar;

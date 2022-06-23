@@ -1,16 +1,17 @@
-import List from "./components/List";
+import React from "react";
 import Navbar from "./components/Navbar";
-import ThemeToggle from "./components/ThemeToggle";
-import ThemeContextProvider from "./contexts/ThemeContext";
+import ListContextProvider from "./contexts/ListContext";
+import List from "./components/List";
+import NewListForm from "./components/ListForm";
 
 function App() {
   return (
     <div className="App">
-      <ThemeContextProvider>
+      <ListContextProvider>
         <Navbar />
         <List />
-        <ThemeToggle />
-      </ThemeContextProvider>
+        <NewListForm />
+      </ListContextProvider>
     </div>
   );
 }
