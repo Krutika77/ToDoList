@@ -21,7 +21,7 @@ const NewListForm = () => {
         required
       />
       <input
-        type="text"
+        type="time"
         placeholder="Time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
