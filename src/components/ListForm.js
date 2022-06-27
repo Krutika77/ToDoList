@@ -2,12 +2,18 @@ import React, { useContext, useState } from "react";
 import { ListContext } from "../contexts/ListContext";
 
 const NewListForm = () => {
-  const { addTodo } = useContext(ListContext);
+  const { dispatch } = useContext(ListContext);
   const [title, setTitle] = useState("");
   const [time, setTime] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodo(title, time);
+    dispatch({
+      type: "ADD_TODO",
+      todo: {
+        title,
+        time,
+      },
+    });
     setTitle("");
     setTime("");
   };

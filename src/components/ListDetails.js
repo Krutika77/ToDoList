@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { ListContext } from "../contexts/ListContext";
 
 const ListDetails = ({ todo }) => {
-  const { removeTodo } = useContext(ListContext);
+  const { dispatch } = useContext(ListContext);
   return (
-    <li onClick={() => removeTodo(todo.id)}>
+    <li onClick={() => dispatch({ type: "REMOVE_TODO", id: todo.id })}>
       <div className="title">{todo.title}</div>
       <div className="time">{todo.time}</div>
     </li>
